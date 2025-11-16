@@ -62,7 +62,7 @@ export default function VerticalImageScroll({ posts }: VerticalImageScrollProps)
       <View style={styles.postContainer}>
         {/* Main Image */}
         <Image
-          source={imageSource}
+          source={require('../assets/favicon.png')} // todo 
           style={styles.image}
           resizeMode="cover"
         />
@@ -72,7 +72,7 @@ export default function VerticalImageScroll({ posts }: VerticalImageScrollProps)
           {/* Bottom Info */}
           <View style={styles.bottomInfo}>
             {item.username && (
-              <Text style={styles.username}>@{item.username}</Text>
+              <Text style={styles.username}>@{item.username}</Text> // todo username?
             )}
             {item.title && (
               <Text style={styles.title}>{item.title}</Text>
