@@ -16,19 +16,6 @@ export default function App() {
     loadData();
   }, []);  // ← Empty array means "run once on mount"
   
-  // const posts = [ // todo
-  //   {
-  //     id: '1',
-  //     imageUrl: require('./assets/favicon.png'),
-  //     title: 'Beautiful sunset',
-  //   },
-  //   {
-  //     id: '2',
-  //     imageUrl: require('./assets/goober.jpg'),
-  //     title: 'City lights',
-  //   },
-  // ];
-
   const [showStories, setShowStories] = useState(false); // TODO
 
   const stories = [

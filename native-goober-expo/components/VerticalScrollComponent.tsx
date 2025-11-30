@@ -1,4 +1,7 @@
 import React, { useState, useRef } from 'react';
+import BillProgressTracker from './BillProgressTracker';
+import { BillStagesTracker } from './BillStageTracker';
+
 import {
   View,
   FlatList,
@@ -18,6 +21,8 @@ interface ImagePost {
   title?: string;
   username?: string;
   likes?: number;
+  billStatus: any;
+  currentStage: any
 }
 
 interface VerticalImageScrollProps {
@@ -55,11 +60,24 @@ export default function VerticalImageScroll({ posts }: VerticalImageScrollProps)
   };
 
   const renderItem = ({ item, index }: { item: ImagePost; index: number }) => {
-    const imageSource = typeof item.imageUrl === 'string' 
-      ? { uri: item.imageUrl }
-      : item.imageUrl;
+    const possibleStages = [ // make this an enum
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+    ];
+    const randomStage = possibleStages[Math.floor(Math.random() * possibleStages.length)];
+    item.billStatus = {
+      lastAction: 'Referred to Senate Committee on Finance',
+      lastActionDate: '2024-03-15'
+    };
+    item.currentStage = randomStage;
+        
     return (
       <View style={styles.postContainer}>
+      <BillStagesTracker currentStageIndex={item.currentStage} />
         {/* Main Image */}
         <Image
           source={require('../assets/favicon.png')} // todo 

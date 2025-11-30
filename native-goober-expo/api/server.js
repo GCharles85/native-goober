@@ -8,7 +8,7 @@ export const getRecentBills = async () => {
     );
     const data = await response.json();
     console.log("in server.js"); // todo remove logs
-    console.log(JSON.stringify(data.bill, null, 2));
+    console.log(JSON.stringify(data.bills, null, 2));
     return data.bills;
   } catch (error) {
     console.error('Error fetching bills:', error);
